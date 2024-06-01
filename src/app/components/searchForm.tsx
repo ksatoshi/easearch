@@ -1,6 +1,13 @@
+import { getPosition } from "@/lib/getPosition";
 import { Button, Checkbox, Flex, FormControl, FormLabel, Input, Select, Stack, VStack } from "@chakra-ui/react";
 
 export default function SearchForm(){
+    const userPositionChangeHandler = (e:boolean) =>{
+        if(e){
+            getPosition();
+        }
+    }
+
     return(
         
         <FormControl>
@@ -48,7 +55,7 @@ export default function SearchForm(){
                     <Stack direction="row" spacing={20}>
                         <Stack direction="row">
                             <FormLabel htmlFor="user-position">位置情報を利用する</FormLabel>
-                            <Checkbox id="user-position"/>
+                            <Checkbox id="user-position" onChange={userPositionChangeHandler}/>
                         </Stack>
 
                         <Stack direction="row">
