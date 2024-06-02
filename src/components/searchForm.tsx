@@ -2,10 +2,11 @@ import { getPosition } from "@/lib/getPosition";
 import { cardState, freeDrinkState, freeFoodState, keyWordState, nonSmokingState, parkingState, privateRoomState, positionEnableState, rangeState } from "@/state/basicResearchState";
 import { Button, Checkbox, Flex, FormControl, FormLabel, Input, Select, Stack, VStack } from "@chakra-ui/react";
 import { ChangeEvent } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState} from "recoil";
+import { useRouter } from "next/navigation";
 
 export default function SearchForm(){
-    let isRangeSelectorEnable = false;
+    const router = useRouter();
 
     const [keyWord, setKeyWord] = useRecoilState(keyWordState);
     const [freeDrink, setFreeDrink] = useRecoilState(freeDrinkState);
@@ -83,13 +84,17 @@ export default function SearchForm(){
         }
     }
 
+    const searchButoonOnClick = (e:any) =>{
+        router.push("/result");
+    }
+
     return(
         
         <FormControl>
             <Flex justify="center" align="center">
                 <Stack direction="row" spacing={5}>
                     <Input placeholder="キーワードで検索" width={800} onChange={keyWordChangeHandler}/>
-                    <Button colorScheme="blue">検索</Button>
+                    <Button colorScheme="blue" onClick={searchButoonOnClick}>検索</Button>
                 </Stack>
             </Flex>
             
