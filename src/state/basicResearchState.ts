@@ -10,6 +10,15 @@ export const keyWordState = atom<string>({
     default: undefined
 });
 
+export const positionEnableState = atom<boolean>({
+    key: 'positionIsEnable',
+    default: undefined
+});
+
+export const rangeState = atom<number>({
+    key: 'range',
+    default: undefined
+});
 
 export const positionState = atom<[number, number]>({
     key: 'position',
