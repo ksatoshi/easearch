@@ -10,8 +10,15 @@ export async function GET(request: NextRequest) {
     const card = request.nextUrl.searchParams.get('card');
     const nonSmoking = request.nextUrl.searchParams.get('non_smoking');
     const parking = request.nextUrl.searchParams.get('parking');
+    const lat = request.nextUrl.searchParams.get('lat');
+    const lng = request.nextUrl.searchParams.get('lng');
+    const range = request.nextUrl.searchParams.get('range');
     
-    const requestUrl = `${endpoint}?key=${apiKey}&free_drink=${freeDrink}&free_food=${freeFood}&private_room=${privateRoom}&card=${card}&non_smoking=${nonSmoking}&parking=${parking}&format=json`;
+    let requestUrl = `${endpoint}?key=${apiKey}&free_drink=${freeDrink}&free_food=${freeFood}&private_room=${privateRoom}&card=${card}&non_smoking=${nonSmoking}&parking=${parking}&format=json`;
+
+    if(lat!=null && lng!=null && range!=null){
+        requestUrl = `${requestUrl}&lat=${lat}&lng=${lng}&range=${range}`;
+    }
 
     console.log(`request url:${requestUrl}`);
 
