@@ -1,7 +1,5 @@
-import { Box, HStack, VStack, Text,Link, Stack} from "@chakra-ui/react"
+import { Box,Text,Link, Stack} from "@chakra-ui/react"
 import Image from "next/image"
-import ChakraLinkWithNext from "./chakraLinkWithNext";
-import { tree } from "next/dist/build/templates/app-page";
 
 export type StoreOverViewProps = {
     storeName: string,
