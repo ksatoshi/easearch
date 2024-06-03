@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
 const endpoint = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
-const apiKey = ""
+const apiKey = process.env.RECRUIT_API_KEY;
 
 export async function GET(request: NextRequest) {
     const freeDrink = request.nextUrl.searchParams.get('free_drink');
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
         requestUrl = `${requestUrl}&lat=${lat}&lng=${lng}&range=${range}`;
     }
 
-    console.log(`request url:${requestUrl}`);
+    console.log(requestUrl);
 
     const originReq = await fetch(requestUrl);
     const originData = await originReq.json();
