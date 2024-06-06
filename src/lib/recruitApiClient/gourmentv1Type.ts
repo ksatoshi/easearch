@@ -14,4 +14,5 @@ export type Gourmentv1LiteShopOnlyType = {
     logo_image: string|null,
     name_kana: string|null,
     address: string,
+    access: string,
 }[]

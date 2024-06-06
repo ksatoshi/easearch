@@ -85,6 +85,15 @@ export default function SearchForm(){
     }
 
     const searchButoonOnClick = (e:any) =>{
+        // 各条件がtrueではないときfalseを設定する
+        if(!freeFood) setFreeFood(false);
+        if(!freeDrink) setFreeDrink(false);
+        if(!privateRoom) setPrivateRoom(false);
+        if(!card) setCard(false);
+        if(!nonSmoking) setNonSmoking(false);
+        if(!parking) setParking(false);
+        if(!positionEnable) setPositionEnable(false);
+
         router.push("/result");
     }
 
