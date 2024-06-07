@@ -65,7 +65,7 @@ export default function Result(){
                 <GridItem w="40%" h="100%">
                     <MiniSearchForm />
                     {resultBody.map((value, key) => (
-                        <StoreOverView storeName={value.name} address={value.address} access={value.access} thumbnailUrl={value.logo_image} overViewUrl=""/>
+                        <StoreOverView storeName={value.name} address={value.address} access={value.access} thumbnailUrl={value.logo_image} overViewUrl="" storeId={value.id}/>
                     ))}
                 </GridItem>
             </Grid>

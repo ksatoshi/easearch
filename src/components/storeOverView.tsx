@@ -1,5 +1,6 @@
 import { Box,Text,Link, Stack} from "@chakra-ui/react"
 import Image from "next/image"
+import ChakraLinkWithNext from "./chakraLinkWithNext";
 
 export type StoreOverViewProps = {
     storeName: string,
@@ -7,9 +8,10 @@ export type StoreOverViewProps = {
     access: string,
     thumbnailUrl: string|null,
     overViewUrl: string,
+    storeId: string
 }
 
-export default function StoreOverView({storeName,address,access,thumbnailUrl,overViewUrl}:StoreOverViewProps){
+export default function StoreOverView({storeName,address,access,thumbnailUrl,overViewUrl,storeId}:StoreOverViewProps){
     // thumbnailUrlがnull|undefinedな時placeholderに置き換える
     if(thumbnailUrl == null || thumbnailUrl == undefined || thumbnailUrl == "") thumbnailUrl = "/placeholder.svg";
 
@@ -21,7 +23,9 @@ export default function StoreOverView({storeName,address,access,thumbnailUrl,ove
                     <Link textAlign="left">{storeName}</Link>
                     <Text textAlign="left">{address}</Text>
                     <Text textAlign="left">{access}</Text>      
-                    <Link textAlign="right" color="blue.500">詳細</Link>
+                    <ChakraLinkWithNext href={`/detail/${storeId}`} color="blue.500">
+                        詳細
+                    </ChakraLinkWithNext>
                 </Stack>
             </Stack>
         </Box>
