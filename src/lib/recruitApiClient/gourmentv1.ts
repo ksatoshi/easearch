@@ -1,3 +1,5 @@
+import { Gourmentv1DetailShopOnlyType } from "./gourmentv1Type";
+
 const endpoint = "http://localhost:3000/api/proxy/gourment/v1/"
 
 export type basicResearchType = {
@@ -36,6 +38,15 @@ export async function getBasicSearch(
     }
 
     const res = await fetch(url,{method: 'GET'});
+    const data = await res.json();
+
+    return data;
+}
+
+export async function getSearchWithId(id:string){
+    const url = `${endpoint}/idsearch?id=${id}`;
+
+    const res = await fetch(url, {method: 'GET'});
     const data = await res.json();
 
     return data;

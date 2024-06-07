@@ -3,10 +3,10 @@ import { NextRequest } from "next/server";
 const endpoint = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
 const apiKey = process.env.RECRUIT_API_KEY;
 
-export async function Get(request: NextRequest) {
+export async function GET(request: NextRequest) {
     const storeId = request.nextUrl.searchParams.get('id');
 
-    let requestUrl = `${endpoint}?key=${apiKey}&id=${storeId}`;
+    let requestUrl = `${endpoint}?key=${apiKey}&id=${storeId}&format=json`;
 
     console.log(requestUrl);
 
