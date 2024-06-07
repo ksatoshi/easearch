@@ -34,8 +34,8 @@ export default function Detail({params}:{params:{id:string}}){
                 <Image src={value.photo.pc.l} alt={value.name+"の店舗画像(L)"} width={300} height={150}/>
                 <Text>{value.name}</Text>
                 <Text>{value.address}</Text>
-                <Text>{value.open}</Text>
-                <Text>{"定休日"+value.close}</Text>
+                <Text>{"営業時間:"+value.open}</Text>
+                <Text>{"定休日:"+value.close}</Text>
                 </>
                 
             ))}
